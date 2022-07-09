@@ -9,6 +9,7 @@
   "files": [
     "dist"
   ],
+  "bin": "./dist/cli.js",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "exports": {
@@ -29,5 +30,8 @@
     "tsup": "6.0.1",
     "typescript": "4.5.4",
     "vitest": "0.12.6"
+  },
+  "dependencies": {
+    "cac": "^6.7.12"
   }
 }
