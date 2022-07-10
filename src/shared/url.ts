@@ -1,6 +1,6 @@
 import path from 'path/posix'
 import { URL } from 'url'
-import { getUsername } from '../git'
+import { username } from '../git'
 import { Repo } from '../types'
 
 // TODO: only github for now
@@ -22,7 +22,7 @@ export function analyzeUrl(url: string): Repo {
   const {
     protocol = 'https:',
     host = 'github.com',
-    user = getUsername(),
+    user = username,
     name,
   } = matched.groups
 

@@ -1,13 +1,14 @@
 import { test, expect, describe } from 'vitest'
+import { username } from '../src/git'
 import { analyzeUrl, composeUrl } from '../src/shared/url'
 
 describe('analyzeUrl', () => {
   // TODO: skip this test in CI
-  test.skip('repo', () => {
+  test('repo', () => {
     expect(analyzeUrl('ghq-node')).toEqual({
       protocol: 'https:',
       host: 'github.com',
-      user: '2nthony',
+      user: username,
       name: 'ghq-node',
     })
   })
