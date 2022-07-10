@@ -1,35 +1,51 @@
-**💛 You can help the author become a full-time open-source maintainer by [sponsoring him on GitHub](https://github.com/sponsors/egoist).**
+**💛 You can help the author become a full-time open-source maintainer by [sponsoring him on GitHub](https://github.com/sponsors/2nthony).**
 
 ---
 
-# my-ts-lib
+# ghq
 
-[![npm version](https://badgen.net/npm/v/my-ts-lib)](https://npm.im/my-ts-lib) [![npm downloads](https://badgen.net/npm/dm/my-ts-lib)](https://npm.im/my-ts-lib)
+[![npm version](https://img.shields.io/npm/v/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node) [![npm downloads](https://img.shields.io/npm/dm/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node)
 
-## Using this template
+[ghq](https://github.com/x-motemen/ghq) Node.js implemented.
 
-- Search `my-ts-lib` and replace it with your custom package name.
-- Search `egoist` and replace it with your name.
-
-Features:
-
-- Package manager [pnpm](https://pnpm.js.org/), safe and fast
-- Release with [semantic-release](https://npm.im/semantic-release)
-- Bundle with [tsup](https://github.com/egoist/tsup)
-- Test with [vitest](https://vitest.dev)
-
-To skip CI (GitHub action), add `skip-ci` to commit message. To skip release, add `skip-release` to commit message.
-
-## Install
+## Usage
 
 ```bash
-npm i my-ts-lib
+# global install
+npm i -g ghq-node
+$ ghq --help
+
+# one-time usage
+npx ghq-node --help
+```
+
+```console
+ghq/1.0.1
+
+Usage:
+  $ ghq <command> [options]
+
+Commands:
+  get [repo]     Clone/sync with a remote repository
+  list [query]   List local repositories
+  create [repo]  Create a bew repository
+  root           Show repositories' root
+
+For more info, run any command with the `--help` flag:
+  $ ghq get --help
+  $ ghq list --help
+  $ ghq create --help
+  $ ghq root --help
+
+Options:
+  -v, --version  Display version number
+  -h, --help     Display this message
 ```
 
 ## Sponsors
 
-[![sponsors](https://sponsors-images.egoist.sh/sponsors.svg)](https://github.com/sponsors/egoist)
+[![sponsors](https://cdn.jsdelivr.net/gh/2nthony/sponsors-image/sponsors.svg)](https://github.com/sponsors/2nthony)
 
 ## License
 
-MIT &copy; [EGOIST](https://github.com/sponsors/egoist)
+MIT &copy; [2nthony](https://github.com/sponsors/2nthony)
