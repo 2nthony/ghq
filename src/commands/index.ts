@@ -1,6 +1,6 @@
 import { get } from './get'
-import { list } from './list'
 import { create } from './create'
+import { list } from './list'
 import { root } from './root'
 
-export const commands = [get, list, create, root]
+export const commands = [get, create, list, root]
