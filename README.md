@@ -1,12 +1,8 @@
-**💛 You can help the author become a full-time open-source maintainer by [sponsoring him on GitHub](https://github.com/sponsors/2nthony).**
-
----
-
 # ghq
 
-[![npm version](https://img.shields.io/npm/v/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node) [![npm downloads](https://img.shields.io/npm/dm/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node)
+[![version](https://img.shields.io/npm/v/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node) [![downloads](https://img.shields.io/npm/dm/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node)
 
-[ghq](https://github.com/x-motemen/ghq) Node.js implemented (70%).
+[ghq](https://github.com/x-motemen/ghq)(Node.js implemented) - Remote repositories manager.
 
 ## Usage
 
@@ -40,6 +36,20 @@ For more info, run any command with the `--help` flag:
 Options:
   -v, --version  Display version number
   -h, --help     Display this message
+```
+
+## Directory
+
+```
+~/ghq
+└── github.com
+    ├── 2nthony
+    │   ├── ghq
+    │   └── vercel-toast
+    ├── ravenxrz
+    │   └── dotfiles
+    └── vuejs
+        └── vue
 ```
 
 ## Sponsors
