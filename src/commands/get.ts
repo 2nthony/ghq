@@ -1,4 +1,5 @@
 import { clone } from '../git'
+import { parseOptionsToArgs } from '../shared'
 import { PluginApi } from '../types'
 
 export const get: PluginApi = {
@@ -8,13 +9,16 @@ export const get: PluginApi = {
       .example('ghq get 2nthony/ghq-node')
       .example('ghq get github.com/2nthony/ghq-node')
       .example('ghq get https://github.com/2nthony/ghq-node')
-      .action((repo) => {
+      .allowUnknownOptions()
+      .action((repo, options) => {
         if (!repo) {
           api.cli.outputHelp()
           return
         }
 
-        clone(repo)
+        const args = parseOptionsToArgs(options)
+
+        clone(repo, ...args)
       })
   },
 }
