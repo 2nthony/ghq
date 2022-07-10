@@ -23,14 +23,14 @@ Usage:
 
 Commands:
   get [repo]     Clone/sync with a remote repository
-  list [query]   List local repositories
   create [repo]  Create a new repository
+  list [query]   List local repositories
   root           Show repositories' root
 
 For more info, run any command with the `--help` flag:
   $ ghq get --help
-  $ ghq list --help
   $ ghq create --help
+  $ ghq list --help
   $ ghq root --help
 
 Options:
