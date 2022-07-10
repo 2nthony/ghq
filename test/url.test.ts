@@ -3,7 +3,6 @@ import { username } from '../src/git'
 import { analyzeUrl, composeUrl } from '../src/shared/url'
 
 describe('analyzeUrl', () => {
-  // TODO: skip this test in CI
   test('repo', () => {
     expect(analyzeUrl('ghq-node')).toEqual({
       protocol: 'https:',
