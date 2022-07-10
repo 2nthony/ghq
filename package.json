@@ -2,7 +2,9 @@
   "name": "ghq-node",
   "version": "0.0.0",
   "funding": "https://github.com/sponsors/2nthony",
-  "description": "My awesome typescript library",
+  "description": "Remote repository management made easy",
+  "author": "2nthony",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
@@ -18,11 +20,11 @@
     "dist"
   ],
   "bin": {
-    "ghq": "./dist/cli.js"
+    "ghq": "./dist/cli.js",
+    "ghq-node": "./dist/cli.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "license": "MIT",
   "devDependencies": {
     "@2nthony/prettier-config": "1.0.0",
     "@types/node": "^18.0.3",
