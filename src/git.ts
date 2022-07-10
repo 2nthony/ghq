@@ -5,7 +5,7 @@ import { rootPath } from './shared'
 import { analyzeUrl, composeUrl } from './shared/url'
 import { Repo } from './types'
 
-function repoDest(repo: Repo) {
+export function repoDest(repo: Repo) {
   return path.join(rootPath, repo.host, repo.user, repo.name)
 }
 
