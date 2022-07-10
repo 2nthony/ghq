@@ -17,7 +17,9 @@
   "files": [
     "dist"
   ],
-  "bin": "./dist/cli.js",
+  "bin": {
+    "ghq": "./dist/cli.js"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "exports": {
