@@ -24,7 +24,7 @@ Usage:
 Commands:
   get [repo]     Clone/sync with a remote repository
   list [query]   List local repositories
-  create [repo]  Create a bew repository
+  create [repo]  Create a new repository
   root           Show repositories' root
 
 For more info, run any command with the `--help` flag:

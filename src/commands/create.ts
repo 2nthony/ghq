@@ -4,7 +4,7 @@ import { PluginApi } from '../types'
 export const create: PluginApi = {
   extend(api) {
     api.cli
-      .command('create [repo]', 'Create a bew repository')
+      .command('create [repo]', 'Create a new repository')
       .example('ghq create my-repo')
       .example('ghq create 2nthony/my-repo')
       .example('ghq create github.com/2nthony/my-repo')
