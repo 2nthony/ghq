@@ -16,8 +16,8 @@ function repoCwd(repo: Repo) {
   return path.join(userCwd(repo), repo.name)
 }
 
-function git(cmd: string, repo: Repo, ...options: string[]) {
-  return spawn('git', [cmd, composeUrl(repo), ...options], {
+function git(cmd: string, repo: Repo, ...args: string[]) {
+  return spawn('git', [cmd, composeUrl(repo), ...args], {
     cwd: path.join(rootPath, repo.host, repo.user),
     stdio: [process.stdin, process.stdout, process.stderr],
   })
