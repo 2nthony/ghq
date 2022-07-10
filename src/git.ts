@@ -1,12 +1,9 @@
-import { execSync, spawn as _spawn } from 'child_process'
+import { execSync, spawn } from 'child_process'
 import path from 'path'
-import { promisify } from 'util'
 import { existsDir, makeDir } from './fs'
 import { rootPath } from './shared'
 import { analyzeUrl, composeUrl } from './shared/url'
 import { Repo } from './types'
-
-const spawn = promisify(_spawn)
 
 function userDest(repo: Repo) {
   return path.join(rootPath, repo.host, repo.user)
@@ -17,7 +14,7 @@ function repoDest(repo: Repo) {
 }
 
 function git(cmd: string, dest: string, ...args: string[]) {
-  return spawn('git', [cmd, ...args, dest], {
+  spawn('git', [cmd, ...args, dest], {
     stdio: [process.stdin, process.stdout, process.stderr],
   })
 }
