@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "esno src/cli.ts",
-    "build-fast": "tsup src/index.ts --format cjs,esm",
+    "build-fast": "tsup src --format cjs",
     "build": "pnpm run build-fast -- --dts-resolve",
     "test": "vitest run",
     "test:watch": "vitest watch",
@@ -21,11 +21,6 @@
     "ghq": "./dist/cli.js"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "exports": {
-    "require": "./dist/index.js",
-    "import": "./dist/index.mjs"
-  },
   "types": "./dist/index.d.ts",
   "license": "MIT",
   "devDependencies": {
