@@ -22,6 +22,8 @@ function git(cmd: string, dest: string, ...args: string[]) {
   })
 }
 
+export const username = getUsername()
+
 export async function clone(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
   const dest = userDest(repo)
@@ -44,7 +46,7 @@ export async function init(repoUrl: string, ...args: string[]) {
   git('init', dest, ...args)
 }
 
-export function getUsername() {
+function getUsername() {
   try {
     const stdout = execSync('git config --get user.name')
     return stdout.toString().trim()
