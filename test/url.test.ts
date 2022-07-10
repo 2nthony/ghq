@@ -1,5 +1,5 @@
 import { test, expect, describe } from 'vitest'
-import { analyzeUrl } from '../src/shared/url'
+import { analyzeUrl, composeUrl } from '../src/shared/url'
 
 describe('analyzeUrl', () => {
   test('user/rpeo', () => {
@@ -48,5 +48,18 @@ describe('analyzeUrl', () => {
       user: '2nthony',
       name: 'ghq-node',
     })
+  })
+})
+
+describe('composeUrl', () => {
+  test('basic', () => {
+    expect(
+      composeUrl({
+        protocol: 'https:',
+        host: 'github.com',
+        user: '2nthony',
+        name: 'ghq-node',
+      }),
+    ).toBe('https://github.com/2nthony/ghq-node')
   })
 })
