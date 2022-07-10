@@ -37,7 +37,6 @@ export async function init(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
   const dest = repoDest(repo)
 
-  // TODO: refactor this
   if (!(await existsDir(dest))) {
     await makeDir(dest)
   }
