@@ -13,10 +13,10 @@
 ```bash
 # global install
 npm i -g ghq-node
-$ ghq --help
+$ ghq
 
 # one-time usage
-npx ghq-node --help
+npx ghq-node
 ```
 
 ```console
