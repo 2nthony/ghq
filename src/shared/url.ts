@@ -1,10 +1,11 @@
 import path from 'path/posix'
 import { URL } from 'url'
+import { getUsername } from '../git'
 import { Repo } from '../types'
 
 // TODO: only github for now
 const re =
-  /(?:(?<protocol>https:)\/\/)?(?<host>github.com)?\/?(?<user>[\w\W]+)\/(?<name>[\w\W]+)(\.git)?/
+  /(?:(?<protocol>https:)\/\/)?(?<host>github.com)?\/?((?<user>[\w\W]+)\/)?(?<name>[\w\W]+)(\.git)?/
 
 export function analyzeUrl(url: string): Repo {
   const matched = <
@@ -21,7 +22,7 @@ export function analyzeUrl(url: string): Repo {
   const {
     protocol = 'https:',
     host = 'github.com',
-    user,
+    user = getUsername(),
     name,
   } = matched.groups
 
