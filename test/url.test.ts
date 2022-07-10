@@ -4,20 +4,20 @@ import { analyzeUrl, composeUrl } from '../src/shared/url'
 
 describe('analyzeUrl', () => {
   test('repo', () => {
-    expect(analyzeUrl('ghq-node')).toEqual({
+    expect(analyzeUrl('ghq')).toEqual({
       protocol: 'https:',
       host: 'github.com',
       user: username,
-      name: 'ghq-node',
+      name: 'ghq',
     })
   })
 
   test('user/repo', () => {
-    expect(analyzeUrl('2nthony/ghq-node')).toEqual({
+    expect(analyzeUrl('2nthony/ghq')).toEqual({
       protocol: 'https:',
       host: 'github.com',
       user: '2nthony',
-      name: 'ghq-node',
+      name: 'ghq',
     })
 
     expect(analyzeUrl('x-motemen/ghq')).toEqual({
@@ -43,20 +43,20 @@ describe('analyzeUrl', () => {
   })
 
   test('domain/user/repo', () => {
-    expect(analyzeUrl('github.com/2nthony/ghq-node')).toEqual({
+    expect(analyzeUrl('github.com/2nthony/ghq')).toEqual({
       protocol: 'https:',
       host: 'github.com',
       user: '2nthony',
-      name: 'ghq-node',
+      name: 'ghq',
     })
   })
 
   test('protocol://domain/user/repo', () => {
-    expect(analyzeUrl('https://github.com/2nthony/ghq-node')).toEqual({
+    expect(analyzeUrl('https://github.com/2nthony/ghq')).toEqual({
       protocol: 'https:',
       host: 'github.com',
       user: '2nthony',
-      name: 'ghq-node',
+      name: 'ghq',
     })
   })
 })
@@ -68,8 +68,8 @@ describe('composeUrl', () => {
         protocol: 'https:',
         host: 'github.com',
         user: '2nthony',
-        name: 'ghq-node',
+        name: 'ghq',
       }),
-    ).toBe('https://github.com/2nthony/ghq-node')
+    ).toBe('https://github.com/2nthony/ghq')
   })
 })
