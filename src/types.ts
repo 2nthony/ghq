@@ -8,6 +8,7 @@ export type PluginApi = {
 }
 
 export type Repo = {
+  protocol: string
   host: string
   user: string
   name: string
