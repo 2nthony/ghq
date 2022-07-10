@@ -8,40 +8,41 @@ import { Repo } from './types'
 
 const spawn = promisify(_spawn)
 
-function userCwd(repo: Repo) {
+function userDest(repo: Repo) {
   return path.join(rootPath, repo.host, repo.user)
 }
 
-function repoCwd(repo: Repo) {
-  return path.join(userCwd(repo), repo.name)
+function repoDest(repo: Repo) {
+  return path.join(userDest(repo), repo.name)
 }
 
-function git(cmd: string, repo: Repo, ...args: string[]) {
-  return spawn('git', [cmd, composeUrl(repo), ...args], {
-    cwd: path.join(rootPath, repo.host, repo.user),
+function git(cmd: string, dest: string, ...args: string[]) {
+  return spawn('git', [cmd, ...args, dest], {
     stdio: [process.stdin, process.stdout, process.stderr],
   })
 }
 
 export async function clone(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
+  const dest = userDest(repo)
 
-  if (!(await existsDir(userCwd(repo)))) {
-    await makeDir(userCwd(repo))
+  if (!(await existsDir(dest))) {
+    await makeDir(dest)
   }
 
-  git('clone', repo, ...args)
+  git('clone', dest, composeUrl(repo), ...args)
 }
 
 export async function init(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
+  const dest = repoDest(repo)
 
   // TODO: refactor this
-  if (!(await existsDir(repoCwd(repo)))) {
-    await makeDir(repoCwd(repo))
+  if (!(await existsDir(dest))) {
+    await makeDir(dest)
   }
 
-  git('init', repo, ...args)
+  git('init', dest, ...args)
 }
 
 export function getUsername() {
