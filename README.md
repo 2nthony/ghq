@@ -6,7 +6,7 @@
 
 [![npm version](https://img.shields.io/npm/v/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node) [![npm downloads](https://img.shields.io/npm/dm/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node)
 
-[ghq](https://github.com/x-motemen/ghq) Node.js implemented.
+[ghq](https://github.com/x-motemen/ghq) Node.js implemented (70%).
 
 ## Usage
 
