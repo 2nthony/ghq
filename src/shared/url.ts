@@ -4,12 +4,13 @@ import { Repo } from '../types'
 
 // TODO: only github for now
 const re =
-  /(?:git@|https:\/\/)?(?<host>github.com)?\/?(?<user>[\w\W]+)\/(?<name>[\w\W]+)(\.git)?/
+  /(?:(?<protocol>https:)\/\/)?(?<host>github.com)?\/?(?<user>[\w\W]+)\/(?<name>[\w\W]+)(\.git)?/
 
 export function analyzeUrl(url: string): Repo {
   const matched = <
     RegExpExecArray & {
       groups: {
+        protocol: string
         host: string
         user: string
         name: string
@@ -17,9 +18,15 @@ export function analyzeUrl(url: string): Repo {
     }
   >re.exec(url)
 
-  const { host = 'github.com', user, name } = matched.groups
+  const {
+    protocol = 'https:',
+    host = 'github.com',
+    user,
+    name,
+  } = matched.groups
 
   return {
+    protocol,
     host,
     user,
     name,
@@ -27,8 +34,8 @@ export function analyzeUrl(url: string): Repo {
 }
 
 export function composeUrl(repo: Repo) {
-  const url = new URL(repo.host)
+  const url = new URL(repo.protocol + '//' + repo.host)
   url.pathname = path.join(repo.user, repo.name)
 
-  return url
+  return url.toString()
 }
