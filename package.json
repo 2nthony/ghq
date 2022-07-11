@@ -10,8 +10,8 @@
   },
   "scripts": {
     "dev": "esno src/cli.ts",
-    "build-fast": "tsup src --format cjs",
-    "build": "pnpm run build-fast -- --dts-resolve",
+    "build-fast": "tsup src/cli.ts",
+    "build": "pnpm run build-fast --minify",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "prepublishOnly": "pnpm run build"
@@ -28,14 +28,12 @@
   "devDependencies": {
     "@2nthony/prettier-config": "1.0.0",
     "@types/node": "^18.0.3",
+    "cac": "^6.7.12",
     "esno": "^0.16.3",
+    "fast-glob": "^3.2.11",
     "prettier": "2.5.1",
     "tsup": "6.0.1",
     "typescript": "4.5.4",
     "vitest": "0.12.6"
-  },
-  "dependencies": {
-    "cac": "^6.7.12",
-    "fast-glob": "^3.2.11"
   }
 }
