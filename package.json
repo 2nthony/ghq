@@ -2,6 +2,7 @@
   "name": "ghq-node",
   "version": "0.0.0",
   "funding": "https://github.com/sponsors/2nthony",
+  "repository": "2nthony/ghq",
   "description": "Remote repositories manager",
   "author": "2nthony",
   "license": "MIT",
