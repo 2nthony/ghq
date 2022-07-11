@@ -13,6 +13,9 @@ export async function existsDir(dirPath: PathLike) {
     .catch(() => false)
 }
 
+/**
+ * `dirPath` itself equal to deep 1
+ */
 export async function collectDirs(dirPath: PathLike, deep = 1) {
   let currentDeep = 0
 
