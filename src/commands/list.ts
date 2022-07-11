@@ -1,9 +1,9 @@
 import { PluginApi } from '../types'
-import fg from 'fast-glob'
 import path from 'path'
 import { rootPath } from '../shared'
 import { analyzeUrl } from '../shared/url'
-import { Entry } from 'fast-glob/out/types'
+import { collectDirs } from '../fs'
+import { PathLike } from 'fs'
 
 export const list: PluginApi = {
   extend(api) {
@@ -13,16 +13,18 @@ export const list: PluginApi = {
         default: false,
       })
       .action(async (query, { fullPath }) => {
-        let entries = await fg(path.join(rootPath, '*', '*', '*'), {
-          onlyDirectories: true,
-          objectMode: true,
-          dot: true,
-        })
+        /**
+         * deep `4` means:
+         * 1 ~/ghq
+         * 2 github.com
+         * 3 user
+         * 4 repo
+         */
+        let entries = await collectDirs(rootPath, 4)
 
         if (query) {
           entries = entries.filter((entry) => {
-            // github.com/uer/name
-            const repoPath = relativeRootPath(entry.path)
+            const repoPath = relativeRootPath(entry)
             const repo = analyzeUrl(repoPath)
 
             return (
@@ -36,15 +38,15 @@ export const list: PluginApi = {
           print(entry)
         }
 
-        function relativeRootPath(entryPath: Entry['path']) {
-          return path.relative(rootPath, entryPath)
+        function relativeRootPath(entryPath: PathLike) {
+          return path.relative(rootPath, entryPath.toString())
         }
 
-        function print(entry: Entry) {
+        function print(entry: PathLike) {
           if (fullPath) {
-            console.info(entry.path)
+            console.info(entry)
           } else {
-            console.info(relativeRootPath(entry.path))
+            console.info(relativeRootPath(entry))
           }
         }
       })
