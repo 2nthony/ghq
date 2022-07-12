@@ -8,10 +8,12 @@ export async function makeDir(dirPath: PathLike) {
 }
 
 export async function exists(targetPath: PathLike) {
-  return await fs
-    .access(targetPath)
-    .then(() => true)
-    .catch(() => false)
+  try {
+    await fs.access(targetPath)
+    return true
+  } catch {
+    return false
+  }
 }
 
 export async function read(filePath: PathLike) {
