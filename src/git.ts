@@ -1,13 +1,13 @@
 import { execSync, spawn } from 'child_process'
-import path from 'path'
 import { resolveConfig } from './config'
 import { exists, makeDir } from './fs'
+import { join } from './path'
 import { analyzeUrl, composeUrl } from './shared/url'
 import { Repo } from './types'
 
 export async function repoDest(repo: Repo) {
   const { root } = await resolveConfig()
-  return path.join(root, repo.host, repo.user, repo.name)
+  return join(root, repo.host, repo.user, repo.name)
 }
 
 function git(cmd: string, dest: string, ...args: string[]) {

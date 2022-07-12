@@ -1,6 +1,6 @@
 import { PathLike } from 'fs'
 import fs from 'fs/promises'
-import path from 'path'
+import { join } from './path'
 import { Config } from './types'
 
 export async function makeDir(dirPath: PathLike) {
@@ -51,7 +51,7 @@ export async function collectDirs(dirPath: PathLike, deep = 1) {
     for (let index = 0; index < dirDirents.length; index++) {
       const dirent = dirDirents[index]
 
-      await read(path.join(currentDirPath.toString(), dirent.name))
+      await read(join(currentDirPath.toString(), dirent.name))
 
       /**
        * if this dirent is the last directory
