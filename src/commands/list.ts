@@ -1,9 +1,9 @@
 import { PluginApi } from '../types'
 import path from 'path'
-import { rootPath } from '../shared'
 import { analyzeUrl } from '../shared/url'
 import { collectDirs } from '../fs'
 import { PathLike } from 'fs'
+import { resolveConfig } from '../config'
 
 export const list: PluginApi = {
   extend(api) {
@@ -14,6 +14,8 @@ export const list: PluginApi = {
         default: false,
       })
       .action(async (query, { fullPath }) => {
+        const { root } = await resolveConfig()
+
         /**
          * deep `4` means:
          * 1 ~/ghq
@@ -21,7 +23,7 @@ export const list: PluginApi = {
          * 3 user
          * 4 repo
          */
-        let entries = await collectDirs(rootPath, 4)
+        let entries = await collectDirs(root, 4)
 
         if (query) {
           entries = entries.filter((entry) => {
@@ -40,7 +42,7 @@ export const list: PluginApi = {
         }
 
         function relativeRootPath(entryPath: PathLike) {
-          return path.relative(rootPath, entryPath.toString())
+          return path.relative(root, entryPath.toString())
         }
 
         function print(entry: PathLike) {
