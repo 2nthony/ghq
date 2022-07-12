@@ -31,7 +31,10 @@ export async function readUserConfig(): Promise<OptionalConfig> {
   const rawConfig = await read(userConfigFilePath)
 
   if (!rawConfig) {
-    console.info('No user config found! Fallback to default config.\n')
+    console.info(
+      '`' + ghqConfigFileName + '` file not found!',
+      'Fallback to default configs.\n',
+    )
     return {}
   }
 
