@@ -5,7 +5,7 @@ import { read, writeJson } from './fs'
 import { expandTildePath } from './path'
 
 const ghqConfigFileName = '.ghqrc'
-const userConfigFilePath = path.join(homedir(), ghqConfigFileName)
+export const userConfigFilePath = path.join(homedir(), ghqConfigFileName)
 
 const defaultConfig: Config = {
   root: '~/ghq',
