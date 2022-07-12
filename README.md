@@ -25,8 +25,8 @@ $ ghq
 npx ghq-node
 ```
 
-```console
-ghq/1.0.1
+```
+ghq/0.0.0
 
 Usage:
   $ ghq <command> [options]
@@ -35,12 +35,14 @@ Commands:
   get [repo]     Clone/sync with a remote repository
   create [repo]  Create a new repository
   list [query]   List local repositories
-  root           Show repositories' root
+  config         Manage the ghq configuration file
+  root           Alias to `ghq config --get.root`
 
 For more info, run any command with the `--help` flag:
   $ ghq get --help
   $ ghq create --help
   $ ghq list --help
+  $ ghq config --help
   $ ghq root --help
 
 Options:
