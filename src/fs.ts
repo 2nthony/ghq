@@ -37,6 +37,10 @@ export async function collectDirs(dirPath: PathLike, deep = 1) {
   await read(dirPath)
 
   async function read(currentDirPath: typeof dirPath) {
+    if (!(await exists(currentDirPath))) {
+      return
+    }
+
     currentDeep += 1
 
     if (currentDeep === deep) {
