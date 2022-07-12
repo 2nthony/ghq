@@ -9,6 +9,7 @@ export const list: PluginApi = {
   extend(api) {
     api.cli
       .command('list [query]', 'List local repositories')
+      .alias('ls')
       .option('-p, --full-path', 'Print full path', {
         default: false,
       })
