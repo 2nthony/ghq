@@ -11,7 +11,6 @@ export const config: PluginApi = {
       .example('ghq config --get.root')
       .option('-l, --list', 'List all')
       .action(async (options) => {
-        console.log(options)
         if (options.list) {
           await printConfig()
           return
