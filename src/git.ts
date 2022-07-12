@@ -22,7 +22,7 @@ export async function clone(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
   const dest = await repoDest(repo)
 
-  if (!(await existsDir(dest))) {
+  if (!(await exists(dest))) {
     await makeDir(dest)
   }
 
@@ -33,7 +33,7 @@ export async function init(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
   const dest = await repoDest(repo)
 
-  if (!(await existsDir(dest))) {
+  if (!(await exists(dest))) {
     await makeDir(dest)
   }
 
