@@ -1,16 +1,29 @@
 import { PathLike } from 'fs'
 import fs from 'fs/promises'
 import path from 'path'
+import { Config } from './types'
 
 export async function makeDir(dirPath: PathLike) {
   return await fs.mkdir(dirPath, { recursive: true })
 }
 
-export async function existsDir(dirPath: PathLike) {
+export async function exists(dirPath: PathLike) {
   return await fs
     .access(dirPath)
     .then(() => true)
     .catch(() => false)
+}
+
+export async function read(targetPath: PathLike) {
+  try {
+    return await fs.readFile(targetPath, 'utf8')
+  } catch {
+    return ''
+  }
+}
+
+export async function writeJson(filePath: string, config: Config) {
+  return await fs.writeFile(filePath, JSON.stringify(config, null, 2))
 }
 
 /**
