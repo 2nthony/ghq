@@ -13,3 +13,9 @@ export type Repo = {
   user: string
   name: string
 }
+
+export type Config = {
+  root: string
+}
+
+export type OptionalConfig = Partial<Config>
