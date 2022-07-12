@@ -1,7 +1,6 @@
-import path from 'path/posix'
-import { URL } from 'url'
 import { username } from '../git'
 import { Repo } from '../types'
+import urlJoin from 'url-join'
 
 // TODO: only github for now
 const re =
@@ -35,8 +34,7 @@ export function analyzeUrl(url: string): Repo {
 }
 
 export function composeUrl(repo: Repo) {
-  const url = new URL(repo.protocol + '//' + repo.host)
-  url.pathname = path.join(repo.user, repo.name)
+  const url = urlJoin(`${repo.protocol}//${repo.host}`, repo.user, repo.name)
 
-  return url.toString()
+  return url
 }
