@@ -6,7 +6,7 @@ export function expandTildePath(pathWithTilde: string) {
     pathWithTilde = join(homedir(), pathWithTilde.slice(1))
   }
 
-  return pathWithTilde
+  return path.normalize(pathWithTilde)
 }
 
 export function join(...p: string[]) {
