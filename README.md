@@ -1,8 +1,18 @@
-# ghq
+![ghq](https://cdn.jsdelivr.net/gh/2nthony/statics@main/uPic/ghq-readmewi4t4S.png)
 
 [![version](https://img.shields.io/npm/v/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node) [![downloads](https://img.shields.io/npm/dm/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node)
 
 [ghq](https://github.com/x-motemen/ghq)(Node.js implemented) - Remote repositories manager.
+
+## Features
+
+- Light-weight. No dependency, just a 10+ Kb single file.
+- Git similar. Subcommands like `get` alias to `clone`.
+- One-time usage. Via `npx`.
+
+## Prerequisites
+
+[Git](https://git-scm.com/) CLI installed.
 
 ## Usage
 
@@ -51,6 +61,10 @@ Options:
     └── vuejs
         └── vue
 ```
+
+## Inspirations
+
+- [x-motemen/ghq](https://github.com/x-motemen/ghq)
 
 ## Sponsors
 
