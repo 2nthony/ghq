@@ -3,8 +3,8 @@ import { PluginApi } from '../types'
 
 export const root: PluginApi = {
   extend(api) {
-    api.cli.command('root', 'Alias to `ghq config --get.root`').action(() => {
-      const { root } = resolveConfig()
+    api.cli.command('root', `Show repositories' root`).action(async () => {
+      const { root } = await resolveConfig()
       console.info(root)
     })
   },
