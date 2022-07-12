@@ -6,7 +6,7 @@ export async function makeDir(dirPath: PathLike) {
   return await fs.mkdir(dirPath, { recursive: true })
 }
 
-export async function existsDir(dirPath: PathLike) {
+export async function exists(dirPath: PathLike) {
   return await fs
     .access(dirPath)
     .then(() => true)
