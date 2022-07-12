@@ -7,16 +7,16 @@ export async function makeDir(dirPath: PathLike) {
   return await fs.mkdir(dirPath, { recursive: true })
 }
 
-export async function exists(dirPath: PathLike) {
+export async function exists(targetPath: PathLike) {
   return await fs
-    .access(dirPath)
+    .access(targetPath)
     .then(() => true)
     .catch(() => false)
 }
 
-export async function read(targetPath: PathLike) {
+export async function read(filePath: PathLike) {
   try {
-    return await fs.readFile(targetPath, 'utf8')
+    return await fs.readFile(filePath, 'utf8')
   } catch {
     return ''
   }
