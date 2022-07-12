@@ -1,12 +1,13 @@
 import { execSync, spawn } from 'child_process'
-import path from 'path'
-import { rootPath } from './shared'
+import { resolveConfig } from './config'
 import { exists, makeDir } from './fs'
+import { join } from './path'
 import { analyzeUrl, composeUrl } from './shared/url'
 import { Repo } from './types'
 
-export function repoDest(repo: Repo) {
-  return path.join(rootPath, repo.host, repo.user, repo.name)
+export async function repoDest(repo: Repo) {
+  const { root } = await resolveConfig()
+  return join(root, repo.host, repo.user, repo.name)
 }
 
 function git(cmd: string, dest: string, ...args: string[]) {
@@ -19,7 +20,7 @@ export const username = getUsername()
 
 export async function clone(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
-  const dest = repoDest(repo)
+  const dest = await repoDest(repo)
 
   if (!(await exists(dest))) {
     await makeDir(dest)
@@ -30,7 +31,7 @@ export async function clone(repoUrl: string, ...args: string[]) {
 
 export async function init(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
-  const dest = repoDest(repo)
+  const dest = await repoDest(repo)
 
   if (!(await exists(dest))) {
     await makeDir(dest)

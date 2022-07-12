@@ -3,8 +3,12 @@ import { homedir } from 'os'
 
 export function expandTildePath(pathWithTilde: string) {
   if (pathWithTilde[0] === '~') {
-    pathWithTilde = path.join(homedir(), pathWithTilde.slice(1))
+    pathWithTilde = join(homedir(), pathWithTilde.slice(1))
   }
 
-  return pathWithTilde
+  return path.normalize(pathWithTilde)
+}
+
+export function join(...p: string[]) {
+  return path.normalize(path.join(...p))
 }

@@ -1,4 +1,9 @@
-import { printConfig, writeUserConfig } from '../config'
+import {
+  existsUserConfig,
+  printConfig,
+  writeUserConfig,
+  ghqConfigFileName,
+} from '../config'
 import { Config, OptionalConfig, PluginApi } from '../types'
 
 export const config: PluginApi = {
@@ -11,6 +16,13 @@ export const config: PluginApi = {
       .example('ghq config --get.root')
       .option('-l, --list', 'List all')
       .action(async (options) => {
+        if (!(await existsUserConfig())) {
+          console.info(
+            '`' + ghqConfigFileName + '` file not found!',
+            'Fallback to default configs.\n',
+          )
+        }
+
         if (options.list) {
           await printConfig()
           return

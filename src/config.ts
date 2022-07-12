@@ -1,11 +1,10 @@
 import { Config, OptionalConfig } from './types'
 import { homedir } from 'os'
-import path from 'path'
-import { read, writeJson } from './fs'
-import { expandTildePath } from './path'
+import { exists, read, writeJson } from './fs'
+import { expandTildePath, join } from './path'
 
-const ghqConfigFileName = '.ghqrc'
-const userConfigFilePath = path.join(homedir(), ghqConfigFileName)
+export const ghqConfigFileName = '.ghqrc'
+export const userConfigFilePath = join(homedir(), ghqConfigFileName)
 
 const defaultConfig: Config = {
   root: '~/ghq',
@@ -27,19 +26,14 @@ export async function readConfig() {
   }
 }
 
+export async function existsUserConfig() {
+  return await exists(userConfigFilePath)
+}
+
 export async function readUserConfig(): Promise<OptionalConfig> {
-  const rawConfig = await read(userConfigFilePath)
-
-  if (!rawConfig) {
-    console.info(
-      '`' + ghqConfigFileName + '` file not found!',
-      'Fallback to default configs.\n',
-    )
-    return {}
-  }
-
   try {
-    return JSON.parse(rawConfig)
+    const rawConfig = await read(userConfigFilePath)
+    return rawConfig ? JSON.parse(rawConfig) : {}
   } catch {
     return {}
   }

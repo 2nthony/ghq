@@ -1,22 +1,24 @@
 import { PathLike } from 'fs'
 import fs from 'fs/promises'
-import path from 'path'
+import { join } from './path'
 import { Config } from './types'
 
 export async function makeDir(dirPath: PathLike) {
   return await fs.mkdir(dirPath, { recursive: true })
 }
 
-export async function exists(dirPath: PathLike) {
-  return await fs
-    .access(dirPath)
-    .then(() => true)
-    .catch(() => false)
+export async function exists(targetPath: PathLike) {
+  try {
+    await fs.access(targetPath)
+    return true
+  } catch {
+    return false
+  }
 }
 
-export async function read(targetPath: PathLike) {
+export async function read(filePath: PathLike) {
   try {
-    return await fs.readFile(targetPath, 'utf8')
+    return await fs.readFile(filePath, 'utf8')
   } catch {
     return ''
   }
@@ -37,6 +39,10 @@ export async function collectDirs(dirPath: PathLike, deep = 1) {
   await read(dirPath)
 
   async function read(currentDirPath: typeof dirPath) {
+    if (!(await exists(currentDirPath))) {
+      return
+    }
+
     currentDeep += 1
 
     if (currentDeep === deep) {
@@ -51,7 +57,7 @@ export async function collectDirs(dirPath: PathLike, deep = 1) {
     for (let index = 0; index < dirDirents.length; index++) {
       const dirent = dirDirents[index]
 
-      await read(path.join(currentDirPath.toString(), dirent.name))
+      await read(join(currentDirPath.toString(), dirent.name))
 
       /**
        * if this dirent is the last directory

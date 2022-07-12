@@ -1,8 +1,3 @@
-import { homedir } from 'os'
-import path from 'path'
-
-export const rootPath = path.join(homedir(), 'ghq')
-
 export function parseOptionsToArgs(options: {
   [k: string]: any
 }): readonly string[] {
