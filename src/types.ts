@@ -16,6 +16,7 @@ export type Repo = {
 
 export type Config = {
   root: string
+  shallow: boolean
 }
 
 export type OptionalConfig = Partial<Config>

@@ -8,6 +8,7 @@ export const userConfigFilePath = join(homedir(), ghqConfigFileName)
 
 const defaultConfig: Config = {
   root: '~/ghq',
+  shallow: false,
 }
 
 export async function resolveConfig() {
