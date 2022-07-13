@@ -1,5 +1,5 @@
-import { username } from '../git'
-import { Repo } from '../types'
+import { username } from './git'
+import { Repo } from './types'
 import urlJoin from 'url-join'
 
 // TODO: only github for now
