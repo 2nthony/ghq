@@ -2,7 +2,7 @@ import { execSync, spawn } from 'child_process'
 import { resolveConfig } from './config'
 import { exists, makeDir } from './fs'
 import { join } from './path'
-import { analyzeUrl, composeUrl } from './shared/url'
+import { analyzeUrl, composeUrl } from './url'
 import { Repo } from './types'
 
 export async function repoDest(repo: Repo) {

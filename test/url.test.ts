@@ -1,6 +1,6 @@
 import { test, expect, describe } from 'vitest'
 import { username } from '../src/git'
-import { analyzeUrl, composeUrl } from '../src/shared/url'
+import { analyzeUrl, composeUrl } from '../src/url'
 
 describe('analyzeUrl', () => {
   test('repo', () => {
@@ -9,6 +9,13 @@ describe('analyzeUrl', () => {
       host: 'github.com',
       user: username,
       name: 'ghq',
+    })
+
+    expect(analyzeUrl('ghq node')).toEqual({
+      protocol: 'https:',
+      host: 'github.com',
+      user: username,
+      name: 'ghq node',
     })
   })
 
@@ -39,6 +46,13 @@ describe('analyzeUrl', () => {
       host: 'github.com',
       user: 'characters',
       name: 'my.repo',
+    })
+
+    expect(analyzeUrl('characters/my repo')).toEqual({
+      protocol: 'https:',
+      host: 'github.com',
+      user: 'characters',
+      name: 'my repo',
     })
   })
 

@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest'
 import { resolveConfig } from '../src/config'
 import { repoDest, username } from '../src/git'
 import { join } from '../src/path'
-import { analyzeUrl } from '../src/shared/url'
+import { analyzeUrl } from '../src/url'
 
 describe('repo dest', async () => {
   const { root } = await resolveConfig()

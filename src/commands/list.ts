@@ -1,6 +1,6 @@
 import { PluginApi } from '../types'
 import path from 'path'
-import { analyzeUrl } from '../shared/url'
+import { analyzeUrl } from '../url'
 import { collectDirs } from '../fs'
 import { PathLike } from 'fs'
 import { resolveConfig } from '../config'
