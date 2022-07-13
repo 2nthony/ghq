@@ -1,6 +1,6 @@
-export function parseOptionsToArgs(options: {
-  [k: string]: any
-}): readonly string[] {
+import { CAC } from 'cac'
+
+export function parseOptionsToArgs(options: CAC['options']): readonly string[] {
   delete options['--']
 
   const args = []

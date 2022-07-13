@@ -1,5 +1,5 @@
 import { clone } from '../git'
-import { parseOptionsToArgs } from '../shared'
+import { parseOptionsToArgs } from '../args'
 import { PluginApi } from '../types'
 
 export const get: PluginApi = {
