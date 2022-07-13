@@ -1,5 +1,5 @@
 import { clone } from '../git'
-import { parseCliOptionsToArgs } from '../args'
+import { parseCliOptionsToGitArgs } from '../args'
 import { PluginApi } from '../types'
 
 export const get: PluginApi = {
@@ -17,7 +17,7 @@ export const get: PluginApi = {
           return
         }
 
-        const args = parseCliOptionsToArgs(options)
+        const args = parseCliOptionsToGitArgs(options)
 
         clone(repo, ...args)
       })

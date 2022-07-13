@@ -1,7 +1,7 @@
 import { CAC } from 'cac'
 import { OptionalConfig } from './types'
 
-export function parseCliOptionsToArgs(
+export function parseCliOptionsToGitArgs(
   options: OptionalConfig & CAC['options'],
 ): readonly string[] {
   delete options['--']
