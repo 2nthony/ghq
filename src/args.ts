@@ -20,6 +20,7 @@ export function parseCliOptionsToGitArgs(
   for (const [key, value] of Object.entries(options)) {
     args.push(`${key.length !== 1 ? '-' : ''}-${key}`)
 
+    // drop `true` and `false`
     if (typeof value !== 'boolean') {
       args.push(value)
     }

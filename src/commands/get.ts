@@ -11,6 +11,7 @@ export const get: PluginApi = {
       .example('ghq get 2nthony/ghq')
       .example('ghq get github.com/2nthony/ghq')
       .example('ghq get https://github.com/2nthony/ghq')
+      .example('ghq clone 2nthony/ghq')
       .allowUnknownOptions()
       .action((repo, options) => {
         if (!repo) {
