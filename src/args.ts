@@ -1,6 +1,9 @@
 import { CAC } from 'cac'
+import { OptionalConfig } from './types'
 
-export function parseOptionsToArgs(options: CAC['options']): readonly string[] {
+export function parseCliOptionsToArgs(
+  options: OptionalConfig & CAC['options'],
+): readonly string[] {
   delete options['--']
 
   const args = []
