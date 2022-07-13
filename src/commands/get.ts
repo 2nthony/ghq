@@ -7,9 +7,11 @@ export const get: PluginApi = {
     api.cli
       .command('get [repo]', 'Clone/sync with a remote repository')
       .alias('clone')
+      .option('--shallow', 'Shallow clone, alias to `--depth 1`')
       .example('ghq get 2nthony/ghq')
       .example('ghq get github.com/2nthony/ghq')
       .example('ghq get https://github.com/2nthony/ghq')
+      .example('ghq clone 2nthony/ghq')
       .allowUnknownOptions()
       .action((repo, options) => {
         if (!repo) {

@@ -6,8 +6,9 @@ import { expandTildePath, join } from './path'
 export const ghqConfigFileName = '.ghqrc'
 export const userConfigFilePath = join(homedir(), ghqConfigFileName)
 
-const defaultConfig: Config = {
+export const defaultConfig: Config = {
   root: '~/ghq',
+  shallow: false,
 }
 
 export async function resolveConfig() {
