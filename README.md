@@ -1,18 +1,21 @@
-![ghq](https://cdn.jsdelivr.net/gh/2nthony/statics@main/uPic/ghq-readmewi4t4S.png)
+<!-- ![ghq](https://cdn.jsdelivr.net/gh/2nthony/statics@main/uPic/ghq-readmewi4t4S.png) -->
+
+# ghq
 
 [![version](https://img.shields.io/npm/v/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node) [![downloads](https://img.shields.io/npm/dm/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node)
 
-[ghq](https://github.com/x-motemen/ghq)(Node.js implemented) - Remote repositories manager.
+[ghq](https://github.com/x-motemen/ghq)(Node.js implemented) - **G**it**H**ub repositories **Q**uery manager.
 
 ## Features
 
-- Light-weight. No dependency, just a 10+ Kb single file.
+- Light-weight. No dependency, just a **10+ Kb** single file.
 - Git similar. Subcommands like `get` alias to `clone`.
 - One-time usage. Via `npx`.
 
 ## Prerequisites
 
-[Git](https://git-scm.com/) CLI installed.
+- [Git](https://git-scm.com/) CLI installed.
+- Node.js
 
 ## Usage
 
@@ -21,7 +24,7 @@
 npm i -g ghq-node
 $ ghq
 
-# one-time usage
+# one-time usage, RECOMMENDED
 npx ghq-node
 ```
 
@@ -56,6 +59,7 @@ Options:
 ~/ghq
 └── github.com
     ├── 2nthony
+    │   ├── dotfiles
     │   ├── ghq
     │   └── vercel-toast
     ├── ravenxrz
