@@ -2,6 +2,7 @@ import { Config, OptionalConfig } from './types'
 import { homedir } from 'os'
 import { exists, read, writeJson } from './fs'
 import { expandTildePath, join } from './path'
+import { pick } from './helpers/pick'
 
 export const ghqConfigFileName = '.ghqrc'
 export const userConfigFilePath = join(homedir(), ghqConfigFileName)
@@ -10,6 +11,10 @@ export const defaultConfig: Config = {
   root: '~/ghq',
   shallow: false,
 }
+
+export const supportedConfigKeys = Object.keys(
+  defaultConfig,
+) as (keyof Config)[]
 
 export async function resolveConfig() {
   const config = await readConfig()
@@ -40,30 +45,28 @@ export async function readUserConfig(): Promise<OptionalConfig> {
   }
 }
 
-export async function writeUserConfig<K extends keyof Config>(
-  key: K,
-  value: Config[K],
-) {
+export async function writeUserConfig(options: OptionalConfig) {
   try {
+    options = pick(options, supportedConfigKeys)
+
     const config = await readConfig()
     await writeJson(userConfigFilePath, {
       ...config,
-      [key]: value,
+      ...options,
     })
   } catch (e) {
     console.error(e)
   }
 }
 
-export async function printConfig(key?: keyof Config) {
+export async function printConfig<K extends keyof Config>(
+  expectConfig?: OptionalConfig,
+) {
   const config = await readConfig()
 
-  if (key) {
-    console.info(config[key] ?? '')
-    return
-  }
-
-  for (const [k, v] of Object.entries(config)) {
-    console.info(`${k}=${v}`)
+  for (const k of Object.keys(expectConfig ?? config)) {
+    if (supportedConfigKeys.includes(k as K)) {
+      console.info(`${k}=${config[k as K]}`)
+    }
   }
 }
