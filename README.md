@@ -4,7 +4,7 @@
 
 [![version](https://img.shields.io/npm/v/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node) [![downloads](https://img.shields.io/npm/dm/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node)
 
-[ghq](https://github.com/x-motemen/ghq)(Node.js implemented) - **G**it**H**ub repositories **Q**uery manager.
+**G**it**H**ub repositories **Q**uery manager. The [ghq](https://github.com/x-motemen/ghq)(Node.js implemented).
 
 ## Features
 
