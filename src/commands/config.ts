@@ -3,17 +3,17 @@ import {
   printConfig,
   writeUserConfig,
   ghqConfigFileName,
+  supportedConfigKeys,
+  defaultConfig,
 } from '../config'
-import { Config, OptionalConfig, PluginApi } from '../types'
+import { PluginApi } from '../types'
 
 export const config: PluginApi = {
   extend(api) {
-    api.cli
+    const commandCli = api.cli
       .command('config', 'Manage the ghq configuration file')
       .option('--set <value>', 'Set a variable')
-      .example('ghq config --set.root ~/my-path')
-      .option('--get <value>', 'Get a variable')
-      .example('ghq config --get.root')
+      .option('--get', 'Get a variable')
       .option('-l, --list', 'List all')
       .action(async (options) => {
         if (!(await existsUserConfig())) {
@@ -29,28 +29,22 @@ export const config: PluginApi = {
         }
 
         if (options.set) {
-          const { key, value } = firstArgPairs(options.set)
-          await writeUserConfig(key, value)
-          await printConfig(key)
+          await writeUserConfig(options.set)
+          await printConfig(options.set)
           return
         }
 
         if (options.get) {
-          const { key } = firstArgPairs(options.get)
-          await printConfig(key)
+          await printConfig(options.get)
           return
         }
 
         api.cli.outputHelp()
       })
+
+    supportedConfigKeys.forEach((k) => {
+      commandCli.example(`ghq config --set.${k} [${typeof defaultConfig[k]}]`)
+      commandCli.example(`ghq config --get.${k}`)
+    })
   },
-}
-
-function firstArgPairs<K extends keyof Config>(optionalConfig: OptionalConfig) {
-  const [[key, value] = []] = Object.entries(optionalConfig)
-
-  return {
-    key,
-    value,
-  } as { key: K; value: Config[K] }
 }
