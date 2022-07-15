@@ -27,8 +27,8 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "devDependencies": {
-    "@2nthony/prettier-config": "1.0.0",
-    "@types/node": "^18.0.3",
+    "@2nthony/prettier-config": "1.0.1",
+    "@types/node": "^18.0.4",
     "cac": "^6.7.12",
     "esno": "^0.16.3",
     "prettier": "2.5.1",
