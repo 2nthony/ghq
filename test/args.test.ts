@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { parseCliOptionsToGitArgs } from "../src/args";
+import { correctCliOptionsType, parseCliOptionsToGitArgs } from "../src/args";
 import { defaultConfig } from "../src/config";
 
 describe("parse cli options to args", () => {
@@ -11,5 +11,23 @@ describe("parse cli options to args", () => {
   test("shallow", () => {
     const args = parseCliOptionsToGitArgs({ ...defaultConfig, shallow: true });
     expect(args).toEqual(["--depth", 1]);
+  });
+});
+
+describe("correct cli options type", () => {
+  test("boolean", () => {
+    expect(
+      correctCliOptionsType({
+        // @ts-ignore
+        shallow: "true",
+      }),
+    ).toEqual({ shallow: true });
+
+    expect(
+      correctCliOptionsType({
+        // @ts-ignore
+        shallow: "false",
+      }),
+    ).toEqual({ shallow: false });
   });
 });
