@@ -28,3 +28,15 @@ export function parseCliOptionsToGitArgs(
 
   return args;
 }
+
+export function correctCliOptionsType(
+  options: OptionalConfig & CAC["options"],
+) {
+  return Object.entries(options).reduce((val, pair) => {
+    const [k, v] = pair;
+    if (v === "true" || v === "false") {
+      val[k] = JSON.parse(v);
+    }
+    return val;
+  }, options);
+}
