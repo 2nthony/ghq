@@ -7,6 +7,7 @@ import {
   defaultConfig,
 } from "../config";
 import { PluginApi } from "../types";
+import { correctCliOptionsType } from "../args";
 
 export const config: PluginApi = {
   extend(api) {
@@ -29,7 +30,8 @@ export const config: PluginApi = {
         }
 
         if (options.set) {
-          await writeUserConfig(options.set);
+          const correctTypedOptions = correctCliOptionsType(options.set);
+          await writeUserConfig(correctTypedOptions);
           await printConfig(options.set);
           return;
         }
