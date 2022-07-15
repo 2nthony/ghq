@@ -9,8 +9,8 @@
 ## Features
 
 - Light-weight. No dependency, just a **10+ Kb** single file.
-- Git similar. Subcommands like `get` alias to `clone`.
-- One-time usage. Via `npx`.
+- Git flavoured.
+- Support one-time usage via `npx`.
 
 ## Prerequisites
 
@@ -56,16 +56,18 @@ Options:
 ## Directory
 
 ```
-~/ghq
-└── github.com
-    ├── 2nthony
-    │   ├── dotfiles
-    │   ├── ghq
-    │   └── vercel-toast
-    ├── ravenxrz
-    │   └── dotfiles
-    └── vuejs
-        └── vue
+~
+├── .ghqrc
+└── ghq
+    └── github.com
+        ├── 2nthony
+        │   ├── dotfiles
+        │   ├── ghq
+        │   └── vercel-toast
+        ├── ravenxrz
+        │   └── dotfiles
+        └── vuejs
+            └── vue
 ```
 
 ## Inspirations
