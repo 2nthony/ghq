@@ -4,8 +4,8 @@ export function pick<T extends object, K extends keyof T>(
 ): Pick<T, K> {
   return keys.reduce((val, k) => {
     if (obj[k]) {
-      val[k] = obj[k]
+      val[k] = obj[k];
     }
-    return val
-  }, {} as T)
+    return val;
+  }, {} as T);
 }
