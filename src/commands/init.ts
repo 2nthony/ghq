@@ -5,6 +5,7 @@ export const initCommand: PluginApi = {
   extend(api) {
     api.cli
       .command("init [repo]", "Init a new repository")
+      .alias("create")
       .example("ghq init my-repo")
       .example("ghq init 2nthony/my-repo")
       .example("ghq init my-org/my-repo")
