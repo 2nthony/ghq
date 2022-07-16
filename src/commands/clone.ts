@@ -17,6 +17,7 @@ export const cloneCommand: PluginApi = {
       .example("ghq clone github.com/2nthony/ghq")
       .example("ghq clone https://github.com/2nthony/ghq")
       .example("ghq get 2nthony/ghq")
+      .allowUnknownOptions()
       .action(async (repo, options) => {
         if (!repo) {
           api.cli.outputHelp();
