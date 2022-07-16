@@ -19,7 +19,7 @@
 
 ## Usage
 
-```bash
+```sh
 # global install
 npm i -g ghq-node
 $ ghq
@@ -28,22 +28,22 @@ $ ghq
 npx ghq-node
 ```
 
-```
+```console
 ghq/0.0.0
 
 Usage:
   $ ghq <command> [options]
 
 Commands:
-  get [repo]     Clone/sync with a remote repository
-  create [repo]  Create a new repository
-  list [query]   List local repositories
-  config         Manage the ghq configuration file
-  root           Alias to `ghq config --get.root`
+  clone [repo]  Clone/sync with a remote repository
+  init [repo]   Init a new repository
+  list [query]  List local repositories
+  config        Manage the ghq configuration file
+  root          Show repositories' root
 
 For more info, run any command with the `--help` flag:
-  $ ghq get --help
-  $ ghq create --help
+  $ ghq clone --help
+  $ ghq init --help
   $ ghq list --help
   $ ghq config --help
   $ ghq root --help
@@ -55,9 +55,9 @@ Options:
 
 ## Directory
 
-```
+```sh
 ~
-├── .ghqrc
+├── .ghqrc    # config file
 └── ghq
     └── github.com
         ├── 2nthony

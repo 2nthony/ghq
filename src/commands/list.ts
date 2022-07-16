@@ -5,7 +5,7 @@ import { collectDirs } from "../fs";
 import { PathLike } from "fs";
 import { resolveConfig } from "../config";
 
-export const list: PluginApi = {
+export const listCommand: PluginApi = {
   extend(api) {
     api.cli
       .command("list [query]", "List local repositories")
