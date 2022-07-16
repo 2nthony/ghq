@@ -9,7 +9,7 @@ import {
 import { PluginApi } from "../types";
 import { correctCliOptionsType } from "../args";
 
-export const config: PluginApi = {
+export const configCommand: PluginApi = {
   extend(api) {
     const commandCli = api.cli
       .command("config", "Manage the ghq configuration file")
