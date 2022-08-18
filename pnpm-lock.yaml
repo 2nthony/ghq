@@ -7,7 +7,7 @@ specifiers:
   esno: 0.16.3
   prettier: 2.7.1
   tsup: 6.2.2
-  typescript: 4.5.4
+  typescript: 4.7.4
   url-join: 5.0.0
   vitest: 0.22.1
 
@@ -17,8 +17,8 @@ devDependencies:
   cac: 6.7.12
   esno: 0.16.3
   prettier: 2.7.1
-  tsup: 6.2.2_typescript@4.5.4
-  typescript: 4.5.4
+  tsup: 6.2.2_typescript@4.7.4
+  typescript: 4.7.4
   url-join: 5.0.0
   vitest: 0.22.1
 
@@ -1161,7 +1161,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsup/6.2.2_typescript@4.5.4:
+  /tsup/6.2.2_typescript@4.7.4:
     resolution: {integrity: sha512-vJ9IAdif4GKAz2XMZzjX1hNqhBezJWXjm0qeQEoI7y//a64cxgCF8178eTMV4jBu7YNKnfAPpPSuyXW4mN+9rA==}
     engines: {node: '>=14'}
     hasBin: true
@@ -1191,7 +1191,7 @@ packages:
       source-map: 0.8.0-beta.0
       sucrase: 3.24.0
       tree-kill: 1.2.2
-      typescript: 4.5.4
+      typescript: 4.7.4
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -1213,8 +1213,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /typescript/4.5.4:
-    resolution: {integrity: sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==}
+  /typescript/4.7.4:
+    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
