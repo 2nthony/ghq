@@ -29,7 +29,7 @@
   "devDependencies": {
     "@2nthony/prettier-config": "1.0.1",
     "@types/node": "18.7.6",
-    "cac": "6.7.12",
+    "cac": "6.7.14",
     "esno": "0.16.3",
     "prettier": "2.7.1",
     "tsup": "6.2.2",
