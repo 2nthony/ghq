@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@2nthony/prettier-config': 1.0.1
-  '@types/node': 18.11.5
+  '@types/node': 18.11.6
   cac: 6.7.14
   esno: 0.16.3
   prettier: 2.7.1
@@ -13,7 +13,7 @@ specifiers:
 
 devDependencies:
   '@2nthony/prettier-config': 1.0.1
-  '@types/node': 18.11.5
+  '@types/node': 18.11.6
   cac: 6.7.14
   esno: 0.16.3
   prettier: 2.7.1
@@ -98,8 +98,8 @@ packages:
     resolution: {integrity: sha512-hC7OMnszpxhZPduX+m+nrx+uFoLkWOMiR4oa/AZF3MuSETYTZmFfJAHqZEM8MVlvfG7BEUcgvtwoCTxBp6hm3g==}
     dev: true
 
-  /@types/node/18.11.5:
-    resolution: {integrity: sha512-3JRwhbjI+cHLAkUorhf8RnqUbFXajvzX4q6fMn5JwkgtuwfYtRQYI3u4V92vI6NJuTsbBQWWh3RZjFsuevyMGQ==}
+  /@types/node/18.11.6:
+    resolution: {integrity: sha512-j3CEDa2vd96K0AXF8Wur7UucACvnjkk8hYyQAHhUNciabZLDl9nfAEVUSwmh245OOZV15bRA3Y590Gi5jUcDJg==}
     dev: true
 
   /acorn/8.8.0:
@@ -1301,7 +1301,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.3
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.11.5
+      '@types/node': 18.11.6
       chai: 4.3.6
       debug: 4.3.4
       local-pkg: 0.4.2
