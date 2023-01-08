@@ -1,5 +1,3 @@
-<!-- ![ghq](https://cdn.jsdelivr.net/gh/2nthony/statics@main/uPic/ghq-readmewi4t4S.png) -->
-
 # ghq
 
 [![version](https://img.shields.io/npm/v/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node) [![downloads](https://img.shields.io/npm/dm/ghq-node?label=&color=29BC9B)](https://npm.im/ghq-node)
