@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JSON scheme for .ghqrc",
+  "$ref": "#/definitions/Schema",
+  "definitions": {
+    "root": {
+      "type": "string",
+      "default": "~/ghq",
+      "description": "The path to directory under which cloned repositories placed."
+    },
+    "shallow": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shallow clone (git clone --depth 1)"
+    }
+  }
+}
