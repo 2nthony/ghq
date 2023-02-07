@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@2nthony/prettier-config': 1.0.1
-  '@types/node': 18.11.19
+  '@types/node': 18.13.0
   cac: 6.7.14
   esno: 0.16.3
   prettier: 2.8.3
@@ -13,7 +13,7 @@ specifiers:
 
 devDependencies:
   '@2nthony/prettier-config': 1.0.1
-  '@types/node': 18.11.19
+  '@types/node': 18.13.0
   cac: 6.7.14
   esno: 0.16.3
   prettier: 2.8.3
@@ -98,8 +98,8 @@ packages:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
     dev: true
 
-  /@types/node/18.11.19:
-    resolution: {integrity: sha512-YUgMWAQBWLObABqrvx8qKO1enAvBUdjZOAWQ5grBAkp5LQv45jBvYKZ3oFS9iKRCQyFjqw6iuEa1vmFqtxYLZw==}
+  /@types/node/18.13.0:
+    resolution: {integrity: sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg==}
     dev: true
 
   /@vitest/expect/0.28.3:
@@ -1504,7 +1504,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.11.19
+      '@types/node': 18.13.0
       '@vitest/expect': 0.28.3
       '@vitest/runner': 0.28.3
       '@vitest/spy': 0.28.3
