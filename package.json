@@ -1,31 +1,40 @@
 {
   "name": "ghq-node",
   "version": "0.0.0",
-  "funding": "https://github.com/sponsors/2nthony",
-  "repository": "2nthony/ghq",
   "description": "GitHub repositories Query manager",
   "author": "2nthony",
   "license": "MIT",
+  "funding": "https://github.com/sponsors/2nthony",
+  "repository": "2nthony/ghq",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "git",
+    "ghq",
+    "vcs",
+    "cli",
+    "github"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "ghq": "./dist/cli.js",
+    "ghq-node": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "esno src/cli.ts",
     "build-fast": "tsup src/cli.ts",
     "build": "pnpm run build-fast --minify",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "pnpm run build",
+    "lint": "eslint .",
+    "lint-fix": "npm run lint -- --fix"
   },
-  "files": [
-    "dist"
-  ],
-  "bin": {
-    "ghq": "./dist/cli.js",
-    "ghq-node": "./dist/cli.js"
-  },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "devDependencies": {
     "@2nthony/eslint-config": "^1.0.1",
     "@types/node": "18.15.0",
@@ -36,12 +45,5 @@
     "typescript": "4.9.5",
     "url-join": "5.0.0",
     "vitest": "0.28.3"
-  },
-  "keywords": [
-    "git",
-    "ghq",
-    "vcs",
-    "cli",
-    "github"
-  ]
+  }
 }
