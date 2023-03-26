@@ -39,14 +39,19 @@ export async function init(repoUrl: string, ...args: string[]) {
 }
 
 function getUsername() {
-  try {
-    let username = execSync('git config --get github.user').toString().trim()
-    if (!username)
-      username = execSync('git config --get user.name').toString().trim()
+  let username = ''
+  function get(keypath: string) {
+    try {
+      return execSync(`git config --get ${keypath}`).toString().trim()
+    }
+    catch {
+      return ''
+    }
+  }
 
-    return username
-  }
-  catch {
-    return ''
-  }
+  username = get('github.user')
+  if (!username)
+    username = get('user.name')
+
+  return username
 }
