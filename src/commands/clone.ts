@@ -2,6 +2,7 @@ import { clone } from '../git'
 import { parseCliOptionsToGitArgs } from '../args'
 import type { PluginApi } from '../types'
 import { readConfig } from '../config'
+import { analyzeUrl } from '../url'
 
 export const cloneCommand: PluginApi = {
   extend(api) {
@@ -13,15 +14,26 @@ export const cloneCommand: PluginApi = {
         type: [Boolean],
       })
       .ignoreOptionDefaultValue()
+      .example('ghq clone ghq (requires `.gitconfig` has `github.user` or `user.name`)')
       .example('ghq clone 2nthony/ghq')
       .example('ghq clone github.com/2nthony/ghq')
       .example('ghq clone https://github.com/2nthony/ghq')
       .example('ghq get 2nthony/ghq')
       .allowUnknownOptions()
-      .action(async (repo, options) => {
+      .action(async (repo: string, options) => {
         if (!repo) {
           api.cli.outputHelp()
           return
+        }
+
+        // ghq clone [repo]
+        // means clone my repos?
+        if (!repo.includes('/')) {
+          const { user } = analyzeUrl(repo)
+          if (!user) {
+            api.cli.outputHelp()
+            return
+          }
         }
 
         const config = await readConfig()
