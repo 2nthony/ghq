@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@2nthony/eslint-config": "^1.0.1",
-    "@types/node": "18.16.7",
+    "@types/node": "18.16.8",
     "cac": "6.7.14",
     "eslint": "^8.36.0",
     "esno": "0.16.3",
