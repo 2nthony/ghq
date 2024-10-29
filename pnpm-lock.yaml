@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@2nthony/eslint-config':
-    specifier: ^1.0.3
-    version: 1.1.2(@typescript-eslint/utils@8.12.1)(@vue/compiler-sfc@3.5.12)(eslint@8.57.1)(typescript@5.6.3)(vitest@0.32.2)
+    specifier: ^2.0.0
+    version: 2.1.13(@typescript-eslint/utils@8.12.1)(@vue/compiler-sfc@3.5.12)(eslint@8.57.1)(typescript@5.6.3)(vitest@0.32.2)
   '@types/node':
     specifier: 18.19.60
     version: 18.19.60
@@ -35,15 +35,15 @@ devDependencies:
 
 packages:
 
-  /@2nthony/eslint-config@1.1.2(@typescript-eslint/utils@8.12.1)(@vue/compiler-sfc@3.5.12)(eslint@8.57.1)(typescript@5.6.3)(vitest@0.32.2):
-    resolution: {integrity: sha512-I4TtpISSqyJSupMIbT3Lj3Ycj3DK2WI+CJWAXMRD2XdAX39J2ax/+wNHzeaBsoHGHgpDIaUuz7HQQt4n0ZQEZQ==}
+  /@2nthony/eslint-config@2.1.13(@typescript-eslint/utils@8.12.1)(@vue/compiler-sfc@3.5.12)(eslint@8.57.1)(typescript@5.6.3)(vitest@0.32.2):
+    resolution: {integrity: sha512-hyftOWF4QyB5M+kepTx63JwAiofx5PU61wjepJTGNxjD6cDmUaxBzpL7E5YJcq+Clu6yXT4AOAh1UatTU408xg==}
     peerDependencies:
-      eslint: '>=7.4.0'
+      eslint: '>=8.23.0'
     dependencies:
       '@antfu/eslint-config': 3.8.0(@typescript-eslint/utils@8.12.1)(@vue/compiler-sfc@3.5.12)(eslint@8.57.1)(typescript@5.6.3)(vitest@0.32.2)
       eslint: 8.57.1
       eslint-plugin-react: 7.37.2(eslint@8.57.1)
-      local-pkg: 0.4.3
+      local-pkg: 0.5.0
     transitivePeerDependencies:
       - '@eslint-react/eslint-plugin'
       - '@prettier/plugin-xml'
