@@ -44,6 +44,6 @@
     "tsup": "7.3.0",
     "typescript": "5.9.3",
     "url-join": "5.0.0",
-    "vitest": "0.32.2"
+    "vitest": "4.0.18"
   }
 }
