@@ -1,5 +1,5 @@
-import { init } from '../git'
 import type { PluginApi } from '../types'
+import { init } from '../git'
 
 export const initCommand: PluginApi = {
   extend(api) {

@@ -1,5 +1,5 @@
-import os from 'node:os'
 import fs from 'node:fs/promises'
+import os from 'node:os'
 import { afterEach, beforeEach, describe, expect, test } from 'vitest'
 import { collectDirs, makeDir } from '../src/fs'
 import { join } from '../src/path'

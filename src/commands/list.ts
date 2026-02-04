@@ -1,9 +1,9 @@
-import path from 'node:path'
 import type { PathLike } from 'node:fs'
+import path from 'node:path'
 import type { PluginApi } from '../types'
-import { analyzeUrl } from '../url'
-import { collectDirs } from '../fs'
 import { resolveConfig } from '../config'
+import { collectDirs } from '../fs'
+import { analyzeUrl } from '../url'
 
 export const listCommand: PluginApi = {
   extend(api) {
@@ -30,9 +30,7 @@ export const listCommand: PluginApi = {
             const repoPath = relativeRootPath(entry)
             const repo = analyzeUrl(repoPath)
 
-            return (
-              repo.user.includes(query) || repo.name.includes(query)
-            )
+            return repo.user.includes(query) || repo.name.includes(query)
           })
         }
 
@@ -46,10 +44,8 @@ export const listCommand: PluginApi = {
         }
 
         function print(entry: PathLike) {
-          if (fullPath)
-            console.info(entry)
-          else
-            console.info(relativeRootPath(entry))
+          if (fullPath) console.info(entry)
+          else console.info(relativeRootPath(entry))
         }
       })
   },

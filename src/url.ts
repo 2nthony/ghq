@@ -1,10 +1,10 @@
 import urlJoin from 'url-join'
-import { username } from './git'
 import type { Repo } from './types'
+import { username } from './git'
 
 // TODO: only github for now
-const re
-  = /(?:(?<protocol>https:)\/\/)?(?<host>github.com)?\/?((?<user>[\w\W]+)\/)?(?<name>[\w\W]+)(\.git)?/
+const re =
+  /(?:(?<protocol>https:)\/\/)?(?<host>github.com)?\/?((?<user>[\w\W]+)\/)?(?<name>[\w\W]+)(\.git)?/
 
 export function analyzeUrl(url: string): Repo {
   const matched = <
@@ -18,12 +18,7 @@ export function analyzeUrl(url: string): Repo {
     }
   >re.exec(url)
 
-  const {
-    protocol = 'https:',
-    host = 'github.com',
-    user = username,
-    name,
-  } = matched.groups
+  const { protocol = 'https:', host = 'github.com', user = username, name } = matched.groups
 
   return {
     protocol,

@@ -1,5 +1,9 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "ignorePatterns": [],
-  "singleQuote": true
+  "singleQuote": true,
+  "semi": false,
+  "experimentalSortImports": {
+    "newlinesBetween": false
+  }
 }

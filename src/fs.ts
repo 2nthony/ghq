@@ -1,7 +1,7 @@
 import type { PathLike } from 'node:fs'
 import fs from 'node:fs/promises'
-import { join } from './path'
 import type { Config } from './types'
+import { join } from './path'
 
 export async function makeDir(dirPath: PathLike) {
   return await fs.mkdir(dirPath, { recursive: true })
@@ -11,8 +11,7 @@ export async function exists(targetPath: PathLike) {
   try {
     await fs.access(targetPath)
     return true
-  }
-  catch {
+  } catch {
     return false
   }
 }
@@ -20,8 +19,7 @@ export async function exists(targetPath: PathLike) {
 export async function read(filePath: PathLike) {
   try {
     return await fs.readFile(filePath, 'utf8')
-  }
-  catch {
+  } catch {
     return ''
   }
 }
@@ -41,8 +39,7 @@ export async function collectDirs(dirPath: PathLike, deep = 1) {
   await read(dirPath)
 
   async function read(currentDirPath: typeof dirPath) {
-    if (!(await exists(currentDirPath)))
-      return
+    if (!(await exists(currentDirPath))) return
 
     currentDeep += 1
 
@@ -51,9 +48,9 @@ export async function collectDirs(dirPath: PathLike, deep = 1) {
       return
     }
 
-    const dirDirents = (
-      await fs.readdir(currentDirPath, { withFileTypes: true })
-    ).filter(dirent => dirent.isDirectory())
+    const dirDirents = (await fs.readdir(currentDirPath, { withFileTypes: true })).filter(
+      (dirent) => dirent.isDirectory(),
+    )
 
     for (let index = 0; index < dirDirents.length; index++) {
       const dirent = dirDirents[index]

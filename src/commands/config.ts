@@ -1,3 +1,5 @@
+import type { PluginApi } from '../types'
+import { correctCliOptionsType } from '../args'
 import {
   defaultConfig,
   existsUserConfig,
@@ -6,8 +8,6 @@ import {
   supportedConfigKeys,
   writeUserConfig,
 } from '../config'
-import type { PluginApi } from '../types'
-import { correctCliOptionsType } from '../args'
 
 export const configCommand: PluginApi = {
   extend(api) {
@@ -18,10 +18,7 @@ export const configCommand: PluginApi = {
       .option('-l, --list', 'List all')
       .action(async (options) => {
         if (!(await existsUserConfig())) {
-          console.info(
-            `\`${ghqConfigFileName}\` file not found!`,
-            'Fallback to default configs.\n',
-          )
+          console.info(`\`${ghqConfigFileName}\` file not found!`, 'Fallback to default configs.\n')
         }
 
         if (options.list) {

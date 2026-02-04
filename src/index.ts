@@ -15,6 +15,5 @@ export function main() {
 
   cli.version(version).help().parse()
 
-  if (!process.argv.slice(2).length)
-    cli.outputHelp()
+  if (!process.argv.slice(2).length) cli.outputHelp()
 }

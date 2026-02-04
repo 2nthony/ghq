@@ -1,7 +1,7 @@
-import { clone } from '../git'
-import { parseCliOptionsToGitArgs } from '../args'
 import type { PluginApi } from '../types'
+import { parseCliOptionsToGitArgs } from '../args'
 import { readConfig } from '../config'
+import { clone } from '../git'
 import { analyzeUrl } from '../url'
 
 export const cloneCommand: PluginApi = {

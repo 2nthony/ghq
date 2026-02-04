@@ -1,9 +1,9 @@
 import { execSync, spawn } from 'node:child_process'
+import type { Repo } from './types'
 import { resolveConfig } from './config'
 import { exists, makeDir } from './fs'
 import { join } from './path'
 import { analyzeUrl, composeUrl } from './url'
-import type { Repo } from './types'
 
 export async function repoDest(repo: Repo) {
   const { root } = await resolveConfig()
@@ -22,8 +22,7 @@ export async function clone(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
   const dest = await repoDest(repo)
 
-  if (!(await exists(dest)))
-    await makeDir(dest)
+  if (!(await exists(dest))) await makeDir(dest)
 
   git('clone', dest, composeUrl(repo), ...args)
 }
@@ -32,8 +31,7 @@ export async function init(repoUrl: string, ...args: string[]) {
   const repo = analyzeUrl(repoUrl)
   const dest = await repoDest(repo)
 
-  if (!(await exists(dest)))
-    await makeDir(dest)
+  if (!(await exists(dest))) await makeDir(dest)
 
   git('init', dest, ...args)
 }
@@ -43,15 +41,13 @@ function getUsername() {
   function get(keypath: string) {
     try {
       return execSync(`git config --get ${keypath}`).toString().trim()
-    }
-    catch {
+    } catch {
       return ''
     }
   }
 
   username = get('github.user')
-  if (!username)
-    username = get('user.name')
+  if (!username) username = get('user.name')
 
   return username
 }
