@@ -2,22 +2,17 @@
   "name": "ghq-node",
   "version": "0.0.0",
   "description": "GitHub repositories Query manager",
-  "author": "2nthony",
-  "license": "MIT",
-  "funding": "https://github.com/sponsors/2nthony",
-  "repository": "2nthony/ghq",
-  "publishConfig": {
-    "access": "public"
-  },
   "keywords": [
-    "git",
-    "ghq",
-    "vcs",
     "cli",
-    "github"
+    "ghq",
+    "git",
+    "github",
+    "vcs"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "author": "2nthony",
+  "repository": "2nthony/ghq",
+  "funding": "https://github.com/sponsors/2nthony",
   "bin": {
     "ghq": "./dist/cli.js",
     "ghq-node": "./dist/cli.js"
@@ -25,25 +20,32 @@
   "files": [
     "dist"
   ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "dev": "esno src/cli.ts",
+    "dev": "tsx src/cli.ts",
     "build-fast": "tsup src/cli.ts",
     "build": "pnpm run build-fast --minify",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "prepublishOnly": "pnpm run build",
-    "lint": "eslint .",
+    "fmt": "oxfmt",
+    "fmt-check": "oxfmt --check",
+    "lint": "oxlint .",
     "lint-fix": "npm run lint -- --fix"
   },
   "devDependencies": {
-    "@2nthony/eslint-config": "^1.0.3",
-    "@types/node": "18.19.130",
+    "@types/node": "25.2.0",
     "cac": "6.7.14",
-    "eslint": "^8.42.0",
-    "esno": "0.16.3",
-    "tsup": "7.3.0",
+    "oxfmt": "^0.28.0",
+    "oxlint": "^1.43.0",
+    "tsup": "8.5.1",
+    "tsx": "^4.21.0",
     "typescript": "5.9.3",
     "url-join": "5.0.0",
-    "vitest": "0.32.2"
+    "vitest": "4.0.18"
   }
 }
