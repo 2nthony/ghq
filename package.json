@@ -38,7 +38,7 @@
     "lint-fix": "npm run lint -- --fix"
   },
   "devDependencies": {
-    "@types/node": "25.2.0",
+    "@types/node": "25.2.1",
     "cac": "6.7.14",
     "oxfmt": "^0.28.0",
     "oxlint": "^1.43.0",
