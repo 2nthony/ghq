@@ -40,7 +40,7 @@
   "devDependencies": {
     "@types/node": "25.3.3",
     "cac": "6.7.14",
-    "oxfmt": "^0.28.0",
+    "oxfmt": "^0.36.0",
     "oxlint": "^1.43.0",
     "tsup": "8.5.1",
     "tsx": "^4.21.0",
